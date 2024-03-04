@@ -57,6 +57,7 @@ class Sas:
         # Init the Logging system
         self.log = log_to_stderr()
         self.log.setLevel(logging.getLevelName(debug_level))
+        self.last_gpoll_event = None
 
         # Open the serial connection
         while 1:
@@ -82,8 +83,16 @@ class Sas:
 
     def is_open(self):
         return self.connection.is_open
-
+        
     def flush(self):
+        try:
+            if self.is_open() == False:
+                self.open()
+            self.connection.flush()
+        except Exception as e:
+            self.log.error(e, exc_info=True)
+            
+    def flush_hard(self):
         """Flush the serial buffer in input and output"""
         try:
             if not self.is_open():
@@ -93,7 +102,7 @@ class Sas:
         except Exception as e:
             self.log.error(e, exc_info=True)
 
-        self.close()
+        #self.close()
 
     def start(self):
         """Warm Up the connection to the VLT"""
@@ -242,6 +251,10 @@ class Sas:
             raise EMGGpollBadResponse
         except Exception as e:
             raise e
+        if self.last_gpoll_event != event:
+                self.last_gpoll_event = event
+            else:
+                event = 'No activity'
         return event
 
     def shutdown(self):
