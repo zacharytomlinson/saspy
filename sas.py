@@ -1,4 +1,4 @@
-но#!/usr/bin/python
+#!/usr/bin/python
 # -*- coding: utf8 -*-
 import serial
 import time
