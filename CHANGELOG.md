@@ -2,6 +2,41 @@
 
 
 
+## v0.1.0 (2024-03-04)
+
+### Chore
+
+* chore: added new waiting
+
+Update sas.py ([`3a97d2a`](https://github.com/zacharytomlinson/saspy/commit/3a97d2a009cbb0b5317a84f9c7a080d0b643b412))
+
+### Feature
+
+* feat: added definition in proper clalss
+
+Update error_handler.py ([`84b42bc`](https://github.com/zacharytomlinson/saspy/commit/84b42bcdf3157f377649bc3784f2e611e76c2993))
+
+* feat: new error handler check
+
+Update sas.py ([`9a28596`](https://github.com/zacharytomlinson/saspy/commit/9a28596cf3b417e5efccc974e43545a4cb917671))
+
+* feat: new error handler for badcommand ([`38f587f`](https://github.com/zacharytomlinson/saspy/commit/38f587f175a6e3102b17a810c7ebed165057aaad))
+
+### Unknown
+
+* Update sas.py
+
+wait for EMG wakeup after wakeup signal ([`c48ed0b`](https://github.com/zacharytomlinson/saspy/commit/c48ed0bf09619f97b2c99b8e2ffec0abd37f89ca))
+
+* Update sas.py
+
+BadCommandIsRunning will be raised as an error if the machine is responding too slowly or much faster than you ([`56f7ec2`](https://github.com/zacharytomlinson/saspy/commit/56f7ec2696a88ef3d9f8973817abb2ebc4c0e666))
+
+* Update error_handler.py
+
+Add BadCommandIsRunning exception ([`4b47f99`](https://github.com/zacharytomlinson/saspy/commit/4b47f99d2639e6f07c82cd496514ef4d4ac9444e))
+
+
 ## v0.0.1 (2024-03-02)
 
 ### Fix
