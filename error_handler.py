@@ -33,3 +33,8 @@ class SASOpenError(ErrorHandler):
 class EMGGpollBadResponse(ErrorHandler):
     def __init__(self, message="EMGGPoll bad response", error_code=None):
         super().__init__(message, error_code)
+
+
+class BadCommandIsRunning(ErrorHandler):
+    def __init__(self, message="EMGGPoll bad response", error_code=None):
+        super().__init__(message, error_code)
