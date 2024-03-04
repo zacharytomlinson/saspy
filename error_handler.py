@@ -36,5 +36,5 @@ class EMGGpollBadResponse(ErrorHandler):
 
 
 class BadCommandIsRunning(ErrorHandler):
-    def __init__(self, message="EMGGPoll bad response", error_code=None):
+    def __init__(self, message="BadCommand response", error_code=None):
         super().__init__(message, error_code)
