@@ -2,6 +2,25 @@
 
 
 
+## v0.1.2 (2024-03-04)
+
+### Fix
+
+* fix: typo in header
+
+patch: emg waiting time ([`499590a`](https://github.com/zacharytomlinson/saspy/commit/499590a0de023fdbfe6e6d6a9fe6fc03b50d425b))
+
+### Unknown
+
+* patch: emg waiting timeout
+
+Update sas.py ([`fa0e6ab`](https://github.com/zacharytomlinson/saspy/commit/fa0e6ab50f772adffe545e595f705b17788cf3fe))
+
+* Update sas.py
+
+Fix: Not waith EMG to weckup ([`e24cdf2`](https://github.com/zacharytomlinson/saspy/commit/e24cdf2887b6137659c448d910eb9523ca9698d2))
+
+
 ## v0.1.1 (2024-03-04)
 
 ### Fix
