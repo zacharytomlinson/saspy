@@ -190,19 +190,18 @@ class Sas:
                 except ValueError as e:
                     self.log.critical("no sas response %s" % (str(buf_header[1:])))
                     return None
+            else:
+                if int(binascii.hexlify(response)[2:4], 16) != buf_header[1]:
+                    raise BadCommandIsRunning('response %s run %s' % (binascii.hexlify(response), binascii.hexlify(bytearray(buf_header))))
 
             response = Crc.validate(response)
 
             self.log.debug("sas response %s", binascii.hexlify(response))
 
             return response
-
-        except BadCRC as e:
-            raise e
-
+            
         except Exception as e:
             self.log.critical(e, exc_info=True)
-
         return None
 
     @deprecated("use utils.Crc validation fuction")
