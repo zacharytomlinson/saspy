@@ -2,6 +2,19 @@
 
 
 
+## v0.1.1 (2024-03-04)
+
+### Fix
+
+* fix: flush becomes flush_hard
+
+- Remove self.close() from flush_hard()
+- Returns event only once or &#39;No Activity&#39;.
+- Not tested in a real casino.
+- flush becomes flush_hard.
+- using flush is recommended because not all hardware supports flush_hard ([`7dcd0bb`](https://github.com/zacharytomlinson/saspy/commit/7dcd0bbdefc4dac684818950596c94fb1a85b80b))
+
+
 ## v0.1.0 (2024-03-04)
 
 ### Chore
@@ -23,6 +36,18 @@ Update sas.py ([`9a28596`](https://github.com/zacharytomlinson/saspy/commit/9a28
 * feat: new error handler for badcommand ([`38f587f`](https://github.com/zacharytomlinson/saspy/commit/38f587f175a6e3102b17a810c7ebed165057aaad))
 
 ### Unknown
+
+* Update sas.py
+
+Remove self.close() from flush_hard() ([`b88cfda`](https://github.com/zacharytomlinson/saspy/commit/b88cfdafc0a8a82fb5b8cc1ae69a8dd3298b3825))
+
+* Update sas.py
+
+Returns event only once or &#39;No Activity&#39;.
+Not tested in a real casino.
+
+FIX: flush becomes flush_hard.
+Using flush is recommended because not all hardware supports flush_hard ([`f2f8d9b`](https://github.com/zacharytomlinson/saspy/commit/f2f8d9b14593253ce2014f8af9bcc74b21483406))
 
 * Update sas.py
 
