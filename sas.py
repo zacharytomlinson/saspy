@@ -1,4 +1,4 @@
-#!/usr/bin/python
+но#!/usr/bin/python
 # -*- coding: utf8 -*-
 import serial
 import time
@@ -37,7 +37,7 @@ class Sas:
             debug_level="DEBUG",  # Debug Level
             perpetual=False,  # When this is true the lib will try forever to connect to the serial
             check_last_transaction = True,
-            wait_for_wake_up = 0.01
+            wait_for_wake_up = 0.00
     ):
         # Let's address some internal var
         self.poll_timeout = timeout
