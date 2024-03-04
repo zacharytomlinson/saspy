@@ -36,7 +36,8 @@ class Sas:
             key="44",  # Key
             debug_level="DEBUG",  # Debug Level
             perpetual=False,  # When this is true the lib will try forever to connect to the serial
-            check_last_transaction = True
+            check_last_transaction = True,
+            wait_for_wake_up = 0.01
     ):
         # Let's address some internal var
         self.poll_timeout = timeout
@@ -51,6 +52,7 @@ class Sas:
         self.my_key = key
         self.poll_address= poll_address
         self.perpetual = perpetual
+        self.wait_for_wake_up = wait_for_wake_up
 
         # Init the Logging system
         self.log = log_to_stderr()
@@ -175,7 +177,7 @@ class Sas:
 
             self.connection.flush()
             self.connection.parity = serial.PARITY_SPACE
-
+            time.sleep(self.wait_for_wake_up)
             self.connection.write((buf_header[1:]))
 
         except Exception as e:
