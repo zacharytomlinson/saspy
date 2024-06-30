@@ -181,12 +181,13 @@ class Sas:
 
             if crc_need:
                 buf_header.extend(Crc.calculate(bytes(buf_header)))
+            self.log.debug(buf_header)
 
             self.connection.write([self.poll_address, self.address])
-
-            self.connection.flush()
-            self.connection.parity = serial.PARITY_SPACE
             time.sleep(self.wait_for_wake_up)
+            self.close()
+            self.connection.parity = serial.PARITY_SPACE
+            self.open()
             self.connection.write((buf_header[1:]))
 
         except Exception as e:
@@ -202,7 +203,9 @@ class Sas:
                     self.log.critical("no sas response %s" % (str(buf_header[1:])))
                     return None
             else:
-                if int(binascii.hexlify(response)[2:4], 16) != buf_header[1]:
+                if not response:
+                    raise NoSasConnection
+                elif int(binascii.hexlify(response)[2:4], 16) != buf_header[1]:
                     raise BadCommandIsRunning('response %s run %s' % (binascii.hexlify(response), binascii.hexlify(bytearray(buf_header))))
 
             response = Crc.validate(response)
