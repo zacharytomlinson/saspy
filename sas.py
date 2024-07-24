@@ -2339,13 +2339,13 @@ class Sas:
                 "Transaction buffer position": int(
                     binascii.hexlify(bytearray(data[2:3]))
                 ),
-                "Transfer status": AftTransferStatus.AftTransferStatus.get_status(
+                "Transfer status": AFT.Transfer.get_status(
                     binascii.hexlify(bytearray(data[3:4]))
                 ),
-                "Receipt status": AftTransferStatus.AftTransferStatus.get_status(
+                "Receipt status": AFT.Transfer.get_status(
                     binascii.hexlify(bytearray(data[4:5]))
                 ),
-                "Transfer type": AftTransferStatus.AftTransferStatus.get_status(
+                "Transfer type": AFT.Transfer.get_status(
                     binascii.hexlify(bytearray(data[5:6]))
                 ),
                 "Cashable amount": int(binascii.hexlify(bytearray(data[6:11])))
@@ -2440,13 +2440,13 @@ class Sas:
                     "Transaction buffer position": int(
                         binascii.hexlify(bytearray(data[2:3]))
                     ),
-                    "Transfer status": AftTransferStatus.AftTransferStatus.get_status(
+                    "Transfer status": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[3:4]))
                     ),
-                    "Receipt status": AftTransferStatus.AftTransferStatus.get_status(
+                    "Receipt status": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[4:5]))
                     ),
-                    "Transfer type": AftTransferStatus.AftTransferStatus.get_status(
+                    "Transfer type": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[5:6]))
                     ),
                     "Cashable amount": int(binascii.hexlify(bytearray(data[6:11])))
@@ -2522,13 +2522,13 @@ class Sas:
                     "Transaction buffer position": int(
                         binascii.hexlify(bytearray(data[2:3]))
                     ),
-                    "Transfer status": AftTransferStatus.AftTransferStatus.get_status(
+                    "Transfer status": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[3:4]))
                     ),
-                    "Receipt status": AftTransferStatus.AftTransferStatus.get_status(
+                    "Receipt status": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[4:5]))
                     ),
-                    "Transfer type": AftTransferStatus.AftTransferStatus.get_status(
+                    "Transfer type": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[5:6]))
                     ),
                     "Cashable amount": int(binascii.hexlify(bytearray(data[6:11])))
@@ -2627,13 +2627,13 @@ class Sas:
                     "Transaction buffer position": int(
                         binascii.hexlify(bytearray(data[2:3]))
                     ),
-                    "Transfer status": AftTransferStatus.AftTransferStatus.get_status(
+                    "Transfer status": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[3:4]))
                     ),
-                    "Receipt status": AftTransferStatus.AftTransferStatus.get_status(
+                    "Receipt status": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[4:5]))
                     ),
-                    "Transfer type": AftTransferStatus.AftTransferStatus.get_status(
+                    "Transfer type": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[5:6]))
                     ),
                     "Cashable amount": int(binascii.hexlify(bytearray(data[6:11])))
@@ -2720,13 +2720,13 @@ class Sas:
                     "Transaction buffer position": int(
                         binascii.hexlify(bytearray(data[2:3]))
                     ),
-                    "Transfer status": AftTransferStatus.AftTransferStatus.get_status(
+                    "Transfer status": AFT.Transfer.get_status(
                         [binascii.hexlify(bytearray(data[3:4]))]
                     ),
-                    "Receipt status": AftReceiptStatus.AftReceiptStatus.get_status(
+                    "Receipt status": AFT.Transfer.get_status(
                         [binascii.hexlify(bytearray(data[4:5]))]
                     ),
-                    "Transfer type": AftTransferType.AftTransferType.get_status(
+                    "Transfer type": AFT.Transfer.get_status(
                         [binascii.hexlify(bytearray(data[5:6]))]
                     ),
                     "Cashable amount": int(binascii.hexlify(bytearray(data[6:11])))
@@ -2776,13 +2776,13 @@ class Sas:
                 a = int(binascii.hexlify(bytearray(data[26:27])), 16)
                 response = {
                     "Length": int(binascii.hexlify(bytearray(data[26:27])), 16),
-                    "Transfer status": AftTransferStatus.AftTransferStatus.get_status(
+                    "Transfer status": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[3:4]))
                     ),
-                    "Receipt status": AftTransferStatus.AftTransferStatus.get_status(
+                    "Receipt status": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[4:5]))
                     ),
-                    "Transfer type": AftTransferStatus.AftTransferStatus.get_status(
+                    "Transfer type": AFT.Transfer.get_status(
                         binascii.hexlify(bytearray(data[5:6]))
                     ),
                     "Cashable amount": int(binascii.hexlify(bytearray(data[6:11])))
@@ -2863,77 +2863,77 @@ class Sas:
 
         data = self._send_command(cmd, crc_need=True)
         if data:
-            AftStatements.AftStatements.STATUS_MAP["transaction_buffer_position"] = int(
+            AFT.Statements.STATUS_MAP["transaction_buffer_position"] = int(
                 binascii.hexlify(bytearray(data[2:3]))
             )
-            AftStatements.AftStatements.STATUS_MAP["transfer_status"] = int(
+            AFT.Statements.STATUS_MAP["transfer_status"] = int(
                 binascii.hexlify(bytearray(data[3:4]))
             )
-            AftStatements.AftStatements.STATUS_MAP["receipt_status"] = int(
+            AFT.Statements.STATUS_MAP["receipt_status"] = int(
                 binascii.hexlify(bytearray(data[4:5]))
             )
-            AftStatements.AftStatements.STATUS_MAP["transfer_type"] = int(
+            AFT.Statements.STATUS_MAP["transfer_type"] = int(
                 binascii.hexlify(bytearray(data[5:6]))
             )
-            AftStatements.AftStatements.STATUS_MAP["cashable_amount"] = int(
+            AFT.Statements.STATUS_MAP["cashable_amount"] = int(
                 binascii.hexlify(bytearray(data[6:11]))
             )
-            AftStatements.AftStatements.STATUS_MAP["restricted_amount"] = int(
+            AFT.Statements.STATUS_MAP["restricted_amount"] = int(
                 binascii.hexlify(bytearray(data[11:16]))
             )
-            AftStatements.AftStatements.STATUS_MAP["nonrestricted_amount"] = int(
+            AFT.Statements.STATUS_MAP["nonrestricted_amount"] = int(
                 binascii.hexlify(bytearray(data[16:21]))
             )
-            AftStatements.AftStatements.STATUS_MAP["transfer_flags"] = int(
+            AFT.Statements.STATUS_MAP["transfer_flags"] = int(
                 binascii.hexlify(bytearray(data[21:22]))
             )
-            AftStatements.AftStatements.STATUS_MAP["asset_number"] = binascii.hexlify(
+            AFT.Statements.STATUS_MAP["asset_number"] = binascii.hexlify(
                 bytearray(data[22:26])
             )
-            AftStatements.AftStatements.STATUS_MAP["transaction_id_length"] = int(
+            AFT.Statements.STATUS_MAP["transaction_id_length"] = int(
                 binascii.hexlify(bytearray(data[26:27]))
             )
             a = int(binascii.hexlify(bytearray(data[26:27])))
-            AftStatements.AftStatements.STATUS_MAP["transaction_id"] = str(
+            AFT.Statements.STATUS_MAP["transaction_id"] = str(
                 binascii.hexlify(bytearray(data[27 : (27 + a + 1)]))
             )
             a = 27 + a + 1
-            AftStatements.AftStatements.STATUS_MAP["transaction_date"] = str(
+            AFT.Statements.STATUS_MAP["transaction_date"] = str(
                 binascii.hexlify(bytearray(data[a : a + 5]))
             )
             a = a + 5
-            AftStatements.AftStatements.STATUS_MAP["transaction_time"] = str(
+            AFT.Statements.STATUS_MAP["transaction_time"] = str(
                 binascii.hexlify(bytearray(data[a : a + 4]))
             )
-            AftStatements.AftStatements.STATUS_MAP["expiration"] = str(
+            AFT.Statements.STATUS_MAP["expiration"] = str(
                 binascii.hexlify(bytearray(data[a + 4 : a + 9]))
             )
-            AftStatements.AftStatements.STATUS_MAP["pool_id"] = str(
+            AFT.Statements.STATUS_MAP["pool_id"] = str(
                 binascii.hexlify(bytearray(data[a + 9 : a + 11]))
             )
-            AftStatements.AftStatements.STATUS_MAP[
+            AFT.Statements.STATUS_MAP[
                 "cumulative_cashable_amount_meter_size"
             ] = binascii.hexlify(bytearray(data[a + 11 : a + 12]))
             b = a + int(binascii.hexlify(bytearray(data[a + 11 : a + 12])))
-            AftStatements.AftStatements.STATUS_MAP[
+            AFT.Statements.STATUS_MAP[
                 "cumulative_cashable_amount_meter"
             ] = binascii.hexlify(bytearray(data[a + 12 : b + 1]))
-            AftStatements.AftStatements.STATUS_MAP[
+            AFT.Statements.STATUS_MAP[
                 "cumulative_restricted_amount_meter_size"
             ] = binascii.hexlify(bytearray(data[b + 1 : b + 2]))
             c = b + 2 + int(binascii.hexlify(bytearray(data[b + 1 : b + 2])))
-            AftStatements.AftStatements.STATUS_MAP[
+            AFT.Statements.STATUS_MAP[
                 "cumulative_restricted_amount_meter"
             ] = binascii.hexlify(bytearray(data[b + 2 : c]))
-            AftStatements.AftStatements.STATUS_MAP[
+            AFT.Statements.STATUS_MAP[
                 "cumulative_nonrestricted_amount_meter_size"
             ] = binascii.hexlify(bytearray(data[c : c + 1]))
             b = int(binascii.hexlify(bytearray(data[c : c + 1]))) + c
-            AftStatements.AftStatements.STATUS_MAP[
+            AFT.Statements.STATUS_MAP[
                 "cumulative_nonrestricted_amount_meter"
             ] = binascii.hexlify(bytearray(data[c + 1 :]))
 
-            return AftStatements.AftStatements.get_non_empty_status_map()
+            return AFT.Statements.get_non_empty_status_map()
 
         return None
 
@@ -3031,17 +3031,17 @@ class Sas:
         data = self._send_command(cmd, crc_need=True, size=34)
 
         if data:
-            AftStatements.AftStatements.STATUS_MAP["registration_status"] = (
+            AFT.Statements.STATUS_MAP["registration_status"] = (
                 binascii.hexlify(data[3:7])
             )
 
-            AftStatements.AftStatements.STATUS_MAP["registration_key"] = str(
+            AFT.Statements.STATUS_MAP["registration_key"] = str(
                 binascii.hexlify(data[7:27])
             )
-            AftStatements.AftStatements.STATUS_MAP["POS_ID"] = str(
+            AFT.Statements.STATUS_MAP["POS_ID"] = str(
                 binascii.hexlify((data[27:]))
             )
-            return AftStatements.AftStatements.get_non_empty_status_map()
+            return AFT.Statements.get_non_empty_status_map()
 
         return None
 
@@ -3066,41 +3066,41 @@ class Sas:
 
         data = self._send_command(cmd, crc_need=True, size=40)
         if data:
-            AftStatements.AftStatements.STATUS_MAP["asset_number"] = str(
+            AFT.Statements.STATUS_MAP["asset_number"] = str(
                 binascii.hexlify(bytearray(data[2:6]))
             )
-            AftStatements.AftStatements.STATUS_MAP["game_lock_status"] = str(
+            AFT.Statements.STATUS_MAP["game_lock_status"] = str(
                 binascii.hexlify(bytearray(data[6:7]))
             )
-            AftStatements.AftStatements.STATUS_MAP["avilable_transfers"] = str(
+            AFT.Statements.STATUS_MAP["avilable_transfers"] = str(
                 binascii.hexlify(bytearray(data[7:8]))
             )
-            AftStatements.AftStatements.STATUS_MAP["host_cashout_status"] = str(
+            AFT.Statements.STATUS_MAP["host_cashout_status"] = str(
                 binascii.hexlify(bytearray(data[8:9]))
             )
-            AftStatements.AftStatements.STATUS_MAP["AFT_status"] = str(
+            AFT.Statements.STATUS_MAP["AFT_status"] = str(
                 binascii.hexlify(bytearray(data[9:10]))
             )
-            AftStatements.AftStatements.STATUS_MAP["max_buffer_index"] = str(
+            AFT.Statements.STATUS_MAP["max_buffer_index"] = str(
                 binascii.hexlify(bytearray(data[10:11]))
             )
-            AftStatements.AftStatements.STATUS_MAP["current_cashable_amount"] = str(
+            AFT.Statements.STATUS_MAP["current_cashable_amount"] = str(
                 binascii.hexlify(bytearray(data[11:16]))
             )
-            AftStatements.AftStatements.STATUS_MAP["current_restricted_amount"] = str(
+            AFT.Statements.STATUS_MAP["current_restricted_amount"] = str(
                 binascii.hexlify(bytearray(data[16:21]))
             )
-            AftStatements.AftStatements.STATUS_MAP["current_non_restricted_amount"] = (
+            AFT.Statements.STATUS_MAP["current_non_restricted_amount"] = (
                 str(binascii.hexlify(bytearray(data[21:26])))
             )
-            AftStatements.AftStatements.STATUS_MAP["restricted_expiration"] = str(
+            AFT.Statements.STATUS_MAP["restricted_expiration"] = str(
                 binascii.hexlify(bytearray(data[26:29]))
             )
-            AftStatements.AftStatements.STATUS_MAP["restricted_pool_ID"] = str(
+            AFT.Statements.STATUS_MAP["restricted_pool_ID"] = str(
                 binascii.hexlify(bytearray(data[29:31]))
             )
 
-            return AftStatements.AftStatements.get_non_empty_status_map()
+            return AFT.Statements.get_non_empty_status_map()
 
         return None
 
@@ -3113,13 +3113,13 @@ class Sas:
             a = int(binascii.hexlify(bytearray(data[26:27])), 16)
             response = {
                 "Length": int(binascii.hexlify(bytearray(data[26:27])), 16),
-                "Transfer status": AftTransferStatus.AftTransferStatus.get_status(
+                "Transfer status": AFT.Transfer.get_status(
                     binascii.hexlify(bytearray(data[3:4]))
                 ),
-                "Receipt status": AftReceiptStatus.AftReceiptStatus.get_status(
+                "Receipt status": AFT.Receipt.get_status(
                     binascii.hexlify(bytearray(data[4:5]))
                 ),
-                "Transfer type": AftTransferType.AftTransferType.get_status(
+                "Transfer type": AFT.Transfer.get_type(
                     binascii.hexlify(bytearray(data[5:6]))
                 ),
                 "Cashable amount": int(binascii.hexlify(bytearray(data[6:11])))
@@ -3170,20 +3170,20 @@ class Sas:
 
         data = self._send_command(cmd, True, crc_need=True)
         if data:
-            AftStatements.AftStatements.STATUS_MAP["asset_number"] = str(
+            AFT.Statements.STATUS_MAP["asset_number"] = str(
                 binascii.hexlify(bytearray(data[2:6]))
             )
-            AftStatements.AftStatements.STATUS_MAP["status_bits"] = str(
+            AFT.Statements.STATUS_MAP["status_bits"] = str(
                 binascii.hexlify(bytearray(data[6:8]))
             )
-            AftStatements.AftStatements.STATUS_MAP["cashable_ticket_receipt_exp"] = str(
+            AFT.Statements.STATUS_MAP["cashable_ticket_receipt_exp"] = str(
                 binascii.hexlify(bytearray(data[8:10]))
             )
-            AftStatements.AftStatements.STATUS_MAP["restricted_ticket_exp"] = str(
+            AFT.Statements.STATUS_MAP["restricted_ticket_exp"] = str(
                 binascii.hexlify(bytearray(data[10:]))
             )
 
-            return AftStatements.AftStatements.get_non_empty_status_map()
+            return AFT.Statements.get_non_empty_status_map()
 
         return None
 
@@ -3401,14 +3401,14 @@ class Sas:
         cmd = [0xA0, self._bcd_coder_array(game_number, 2)]
         data = self._send_command(cmd, True, crc_need=True)
         if data:
-            AftStatements.AftStatements.STATUS_MAP["game_number"] = str(
+            AFT.Statements.STATUS_MAP["game_number"] = str(
                 binascii.hexlify(bytearray(data[1:3]))
             )
-            AftStatements.AftStatements.STATUS_MAP["features_1"] = data[3]
-            AftStatements.AftStatements.STATUS_MAP["features_2"] = data[4]
-            AftStatements.AftStatements.STATUS_MAP["features_3"] = data[5]
+            AFT.Statements.STATUS_MAP["features_1"] = data[3]
+            AFT.Statements.STATUS_MAP["features_2"] = data[4]
+            AFT.Statements.STATUS_MAP["features_3"] = data[5]
             GameFeatures.GameFeatures.STATUS_MAP["game_number"] = (
-                AftStatements.AftStatements.get_status("game_number")
+                AFT.Statements.get_status("game_number")
             )
             if data[3] & 0b00000001:
                 GameFeatures.GameFeatures.STATUS_MAP["jackpot_multiplier"] = 1

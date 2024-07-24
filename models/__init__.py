@@ -1,13 +1,8 @@
 __all__ = [
-    "AftLockStatus",
-    "AftReceiptStatus",
-    "AftRegistrationStatus",
-    "AftTransferStatus",
-    "AftTransferType",
+    "AFT",
     "Denomination",
     "GameFeatures",
     "GPoll",
     "Meters",
     "TitoStatement",
-    "AftStatements",
 ]
