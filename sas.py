@@ -2911,27 +2911,27 @@ class Sas:
             AFT.Statements.STATUS_MAP["pool_id"] = str(
                 binascii.hexlify(bytearray(data[a + 9 : a + 11]))
             )
-            AFT.Statements.STATUS_MAP[
-                "cumulative_cashable_amount_meter_size"
-            ] = binascii.hexlify(bytearray(data[a + 11 : a + 12]))
+            AFT.Statements.STATUS_MAP["cumulative_cashable_amount_meter_size"] = (
+                binascii.hexlify(bytearray(data[a + 11 : a + 12]))
+            )
             b = a + int(binascii.hexlify(bytearray(data[a + 11 : a + 12])))
-            AFT.Statements.STATUS_MAP[
-                "cumulative_cashable_amount_meter"
-            ] = binascii.hexlify(bytearray(data[a + 12 : b + 1]))
-            AFT.Statements.STATUS_MAP[
-                "cumulative_restricted_amount_meter_size"
-            ] = binascii.hexlify(bytearray(data[b + 1 : b + 2]))
+            AFT.Statements.STATUS_MAP["cumulative_cashable_amount_meter"] = (
+                binascii.hexlify(bytearray(data[a + 12 : b + 1]))
+            )
+            AFT.Statements.STATUS_MAP["cumulative_restricted_amount_meter_size"] = (
+                binascii.hexlify(bytearray(data[b + 1 : b + 2]))
+            )
             c = b + 2 + int(binascii.hexlify(bytearray(data[b + 1 : b + 2])))
-            AFT.Statements.STATUS_MAP[
-                "cumulative_restricted_amount_meter"
-            ] = binascii.hexlify(bytearray(data[b + 2 : c]))
-            AFT.Statements.STATUS_MAP[
-                "cumulative_nonrestricted_amount_meter_size"
-            ] = binascii.hexlify(bytearray(data[c : c + 1]))
+            AFT.Statements.STATUS_MAP["cumulative_restricted_amount_meter"] = (
+                binascii.hexlify(bytearray(data[b + 2 : c]))
+            )
+            AFT.Statements.STATUS_MAP["cumulative_nonrestricted_amount_meter_size"] = (
+                binascii.hexlify(bytearray(data[c : c + 1]))
+            )
             b = int(binascii.hexlify(bytearray(data[c : c + 1]))) + c
-            AFT.Statements.STATUS_MAP[
-                "cumulative_nonrestricted_amount_meter"
-            ] = binascii.hexlify(bytearray(data[c + 1 :]))
+            AFT.Statements.STATUS_MAP["cumulative_nonrestricted_amount_meter"] = (
+                binascii.hexlify(bytearray(data[c + 1 :]))
+            )
 
             return AFT.Statements.get_non_empty_status_map()
 
@@ -3031,16 +3031,14 @@ class Sas:
         data = self._send_command(cmd, crc_need=True, size=34)
 
         if data:
-            AFT.Statements.STATUS_MAP["registration_status"] = (
-                binascii.hexlify(data[3:7])
+            AFT.Statements.STATUS_MAP["registration_status"] = binascii.hexlify(
+                data[3:7]
             )
 
             AFT.Statements.STATUS_MAP["registration_key"] = str(
                 binascii.hexlify(data[7:27])
             )
-            AFT.Statements.STATUS_MAP["POS_ID"] = str(
-                binascii.hexlify((data[27:]))
-            )
+            AFT.Statements.STATUS_MAP["POS_ID"] = str(binascii.hexlify((data[27:])))
             return AFT.Statements.get_non_empty_status_map()
 
         return None
@@ -3090,8 +3088,8 @@ class Sas:
             AFT.Statements.STATUS_MAP["current_restricted_amount"] = str(
                 binascii.hexlify(bytearray(data[16:21]))
             )
-            AFT.Statements.STATUS_MAP["current_non_restricted_amount"] = (
-                str(binascii.hexlify(bytearray(data[21:26])))
+            AFT.Statements.STATUS_MAP["current_non_restricted_amount"] = str(
+                binascii.hexlify(bytearray(data[21:26]))
             )
             AFT.Statements.STATUS_MAP["restricted_expiration"] = str(
                 binascii.hexlify(bytearray(data[26:29]))

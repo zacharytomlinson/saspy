@@ -154,6 +154,7 @@ class Registration:
         # Use get() method to retrieve the value, or return an error message.
         return cls.STATUS_MAP.get(key, f"Unknown key: {key}")
 
+
 class Receipt:
     """Class representing the receipt for AFT"""
 
