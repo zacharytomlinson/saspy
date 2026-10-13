@@ -6,7 +6,7 @@ How To
 Requirements
 ++++++++++++++
 
-* Python 3.10+
+* Python 3.11+
 * PIP
 
 Clone and Run
@@ -16,6 +16,13 @@ Clone and Run
 
    $ git clone https://github.com/zacharytomlinson/saspy.git
    $ cd saspy
-   $ pip install -r requirements.txt
-   $ nano config.yml # Adjust according your needs
-   $ python example.py # To check that everything works
+   $ python -m pip install -e .
+   $ python examples/query_machine.py /dev/ttyUSB0
+
+For the optional application-level YAML configuration example:
+
+.. code-block:: bash
+
+   $ python -m pip install -e '.[examples]'
+   $ nano examples/config.yml
+   $ python examples/configured_query.py examples/config.yml

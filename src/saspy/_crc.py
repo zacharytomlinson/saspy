@@ -1,6 +1,6 @@
 from enum import Enum
 from ctypes import c_ushort
-from error_handler import NoSasConnection, BadCRC
+from .errors import NoSasConnection, BadCRC
 
 MAGIC_SEED = 0x8408
 table = []

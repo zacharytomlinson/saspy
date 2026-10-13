@@ -17,5 +17,5 @@ security:
 machine:
   pos_id: "B374A402"
   reg_key: "0000000000000000000000000000000000000000"
-  asset_number: "15cd5b07" # Asset Magic Number - Works on every machine !
+  asset_number: "15cd5b07" # Example value; use the asset number configured on your EGM.
   denomination: 0.01

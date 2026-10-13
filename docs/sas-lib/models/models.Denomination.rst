@@ -1,7 +1,7 @@
 Denominations
 ==========================
 
-.. automodule:: models.Denomination
+.. automodule:: saspy.models.Denomination
    :members:
    :undoc-members:
    :show-inheritance:

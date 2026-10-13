@@ -1,7 +1,7 @@
 AFT Transfer Type
 =============================
 
-.. automodule:: models.AftTransferType
+.. automodule:: saspy.models.AftTransferType
    :members:
    :undoc-members:
    :show-inheritance:

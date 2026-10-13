@@ -1,5 +1,1 @@
-pythoncrc
-pyserial
-pytest
-pytest-sugar
-pyyaml
+-e .[test,examples]

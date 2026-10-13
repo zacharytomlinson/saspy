@@ -1,7 +1,7 @@
 AFT Lock Status
 ===========================
 
-.. automodule:: models.AftLockStatus
+.. automodule:: saspy.models.AftLockStatus
    :members:
    :undoc-members:
    :show-inheritance:

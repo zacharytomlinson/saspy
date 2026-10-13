@@ -1,0 +1,26 @@
+from ._observed import ObservedFields
+
+
+class Tito(ObservedFields):
+    """Client-owned observations for Tito."""
+
+    fields = (
+        'asset_number',
+        'status_bits',
+        'cashable_ticket_receipt_exp',
+        'restricted_ticket_exp',
+        'cashout_ticket_number',
+        'cashout_amount_in_cents',
+        'machine_ID',
+        'sequence_numbercashout_type',
+        'cashout_amount',
+        'validation_type',
+        'index_number',
+        'date_validation_operation',
+        'time_validation_operation',
+        'validation_number',
+        'ticket_amount',
+        'ticket_number',
+        'validation_system_ID',
+        'expiration_date_printed_on_ticketpool_id',
+    )

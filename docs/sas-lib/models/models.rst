@@ -1,6 +1,9 @@
 Models
 ==============
-Models are where to Dictionaries of some commands response are stored.
+Status models contain protocol lookup tables. ``Meters``, ``AftStatements``,
+``GameFeatures``, and ``Tito`` are instance-owned observation collections.
+Unknown fields start as ``None``. Their ``snapshot()`` method includes observed
+zero values and returns a read-only copy.
 
 .. toctree::
    :maxdepth: 1

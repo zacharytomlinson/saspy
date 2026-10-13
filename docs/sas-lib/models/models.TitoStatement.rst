@@ -1,7 +1,7 @@
 TiTo Statements
 ===========================
 
-.. automodule:: models.TitoStatement
+.. automodule:: saspy.models.TitoStatement
    :members:
    :undoc-members:
    :show-inheritance:

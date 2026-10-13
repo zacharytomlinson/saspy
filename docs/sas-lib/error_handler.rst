@@ -1,7 +1,7 @@
 Error Handling
 =====================
 
-.. automodule:: error_handler
+.. automodule:: saspy.errors
    :members:
    :undoc-members:
    :show-inheritance:

@@ -1,7 +1,7 @@
 General Poll
 ===================
 
-.. automodule:: models.GPoll
+.. automodule:: saspy.models.GPoll
    :members:
    :undoc-members:
    :show-inheritance:

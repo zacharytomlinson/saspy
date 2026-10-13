@@ -23,5 +23,6 @@ Check out the :ref:`wiki-home`. section for more information about connections a
    :glob:
 
    Home <self>
+   Architecture <architecture>
    Wiki <wiki/WikiHome>
    The Library <sas-lib/main>

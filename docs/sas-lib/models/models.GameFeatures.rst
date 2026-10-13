@@ -1,7 +1,7 @@
 Game Features
 ==========================
 
-.. automodule:: models.GameFeatures
+.. automodule:: saspy.models.GameFeatures
    :members:
    :undoc-members:
    :show-inheritance:

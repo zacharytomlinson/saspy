@@ -7,7 +7,58 @@
 Slots Accounting System (SAS) Protocol is a standard when comes to Slot Machine and VLTs. And because we were bored and with not enough things to do we decided to build this library
 
 ## Scope
-This project, once reached a stable release, will be published on [PyPi](https://pypi.org/) as a Python package.
+SASPY is a Python library for exploring an EGM through an RS-232 adapter. One
+`Sas` client owns its connection, transaction state, and decoded observations.
+Applications decide when to poll and which operations to perform.
+
+Install this checkout with Python 3.11 or later:
+
+```bash
+python -m pip install -e .
+```
+
+```python
+from saspy import Sas
+
+machine = Sas(port="/dev/ttyUSB0")
+try:
+    print(machine.start())
+    print(machine.gaming_machine_id())
+    print(machine.current_credits())
+
+    machine.meters_11_15(denom=False)
+    readings = machine.meter_values
+    print(dict(readings))
+finally:
+    machine.close()
+```
+
+`meter_values`, `aft_values`, `game_features`, and `ticket_values` expose read-only snapshots of
+fields decoded by the existing response models. An unobserved field is absent;
+an observed zero is present. Snapshots remain unchanged after subsequent polls,
+and clients do not share observations. Individual scalar queries keep their
+existing return values; this first extraction does not add caching to them.
+
+Existing `from sas import Sas` and `from error_handler import BadCRC` imports
+remain available after installation. New code can use `saspy` and `saspy.errors`.
+
+The first package extraction preserves existing constructor defaults, command
+encodings, serial operations, requested delays, and command return conventions.
+It does not introduce protocol corrections or claim EGM validation. The ownership
+map, remaining API work, and verification boundaries are in
+[the architecture notes](docs/architecture.rst).
+
+Examples live in `examples/`. To use the optional YAML configuration example,
+install `python -m pip install -e '.[examples]'` and run
+`python examples/configured_query.py examples/config.yml`. The library itself
+does not load a configuration file.
+
+For hardware-free checks:
+
+```bash
+python -m pip install -e '.[test]'
+python -m pytest
+```
 
 # Documentation
 Since this library is still under heavy development (but at least is working !) comments are still not complete and there is a draft of documentation into `docs/` folder. 

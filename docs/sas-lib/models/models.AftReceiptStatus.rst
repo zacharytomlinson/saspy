@@ -1,7 +1,7 @@
 AFT Receipt Status
 ==============================
 
-.. automodule:: models.AftReceiptStatus
+.. automodule:: saspy.models.AftReceiptStatus
    :members:
    :undoc-members:
    :show-inheritance:

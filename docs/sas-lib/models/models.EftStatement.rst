@@ -1,7 +1,7 @@
 EFT Statement (deprecated)
 ==========================
 
-.. automodule:: models.EftStatement
+.. automodule:: saspy.models.EftStatement
    :members:
    :undoc-members:
    :show-inheritance:

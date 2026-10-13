@@ -1,7 +1,7 @@
 AFT Rgistration Status
 ===================================
 
-.. automodule:: models.AftRegistrationStatus
+.. automodule:: saspy.models.AftRegistrationStatus
    :members:
    :undoc-members:
    :show-inheritance:

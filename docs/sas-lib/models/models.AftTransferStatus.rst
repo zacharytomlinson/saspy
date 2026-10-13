@@ -1,7 +1,7 @@
 AFT Transfer Status
 ===============================
 
-.. automodule:: models.AftTransferStatus
+.. automodule:: saspy.models.AftTransferStatus
    :members:
    :undoc-members:
    :show-inheritance:

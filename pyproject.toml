@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saspy"
+version = "2.0.0"
+description = "Explore EGM Slot Accounting System connections from Python"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Zachary Tomlinson"},
+    {name = "Antonio D'Angelo"},
+]
+dependencies = ["pyserial>=3.5"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+examples = ["PyYAML>=6"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["sas", "error_handler"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
